@@ -2,6 +2,17 @@ const chatBox = document.getElementById("chat-box");
 const input = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 
+// Silent warm-up: sends a dummy message so first real message is fast
+window.addEventListener("DOMContentLoaded", () => {
+  fetch("https://amirai.onrender.com/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages: [{ role: "user", content: "warmup" }] })
+  })
+  .then(() => console.log("✅ Chatbot warmed up silently"))
+  .catch(err => console.log("⚠️ Warm-up failed:", err));
+});
+
 let messageHistory = [];
 
 // Markdown rendering with code block support
