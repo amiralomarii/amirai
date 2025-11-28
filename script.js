@@ -1,23 +1,26 @@
 const chatBox = document.getElementById("chat-box");
 const input = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
+let messageHistory = [];
 
 // Silent warm-up: sends a dummy message so first real message is fast
-window.addEventListener("DOMContentLoaded", () => {
-  fetch("https://amirai.onrender.com/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages: [{ role: "user", content: "warmup" }] })
-  })
-  .then(() => console.log("✅ Chatbot warmed up silently"))
-  .catch(err => console.log("⚠️ Warm-up failed:", err));
+window.addEventListener("DOMContentLoaded", async () => {
+  try {
+    console.log("⚡ Warm-up started");
+    const res = await fetch("https://amirai.onrender.com/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: [{ role: "user", content: "Hello" }] })
+    });
+    const data = await res.json();
+    console.log("✅ Warm-up finished:", data);
+  } catch (err) {
+    console.error("⚠️ Warm-up failed:", err);
+  }
 });
-
-let messageHistory = [];
 
 // Markdown rendering with code block support
 function renderMarkdown(text) {
-  // Escape HTML special chars to prevent XSS (except inside code blocks)
   const escapeHtml = (str) =>
     str.replace(/&/g, "&amp;")
        .replace(/</g, "&lt;")
@@ -25,24 +28,16 @@ function renderMarkdown(text) {
        .replace(/"/g, "&quot;")
        .replace(/'/g, "&#39;");
 
-  // Replace code blocks ```code```
-  // We'll temporarily replace them with a unique placeholder so we don't escape their content
   const codeBlocks = [];
   text = text.replace(/```([\s\S]*?)```/g, (match, p1) => {
     codeBlocks.push(p1);
     return `@@CODEBLOCK${codeBlocks.length - 1}@@`;
   });
 
-  // Escape the rest of the text
   let escaped = escapeHtml(text);
-
-  // Replace **bold** with <b>bold</b>
   escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-
-  // Replace *italic* with <i>italic</i>
   escaped = escaped.replace(/\*(.*?)\*/g, '<i>$1</i>');
 
-  // Now replace placeholders with actual code blocks with copy button
   codeBlocks.forEach((code, idx) => {
     const codeHtml = `
       <div class="code-block-wrapper">
@@ -73,7 +68,7 @@ function appendMessage(content, sender) {
   chatBox.appendChild(wrapper);
   chatBox.scrollTop = chatBox.scrollHeight;
 
-  return msg; // to update the typing message later
+  return msg;
 }
 
 function sendMessage() {
@@ -94,9 +89,7 @@ function sendMessage() {
     body: JSON.stringify({ messages: messageHistory }),
   })
     .then((res) => {
-      if (!res.ok) {
-        throw new Error(`Server error: ${res.status}`);
-      }
+      if (!res.ok) throw new Error(`Server error: ${res.status}`);
       return res.json();
     })
     .then((data) => {
@@ -117,7 +110,7 @@ function sendMessage() {
 
 sendBtn.onclick = sendMessage;
 
-input.addEventListener("keydown", function (e) {
+input.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
     sendMessage();
@@ -129,37 +122,26 @@ input.addEventListener("input", () => {
   input.style.height = input.scrollHeight + "px";
 });
 
-// Copy button event listener for code blocks with mobile support and vibration feedback
+// Copy button event listener
 chatBox.addEventListener("click", (e) => {
-  if (e.target.classList.contains("copy-btn")) {
-    const codeElement = e.target.previousElementSibling.querySelector("code");
-    if (!codeElement) return;
+  if (!e.target.classList.contains("copy-btn")) return;
+  const codeElement = e.target.previousElementSibling.querySelector("code");
+  if (!codeElement) return;
 
-    const textToCopy = codeElement.textContent;
-
-    // Try modern clipboard API
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        e.target.textContent = "Copied!";
-        if (navigator.vibrate) {
-          navigator.vibrate(100); // Vibrate for 100ms on mobile
-        }
-        setTimeout(() => {
-          e.target.textContent = "Copy";
-        }, 2000);
-      }).catch(() => fallbackCopy(textToCopy, e.target));
-    } else {
-      // Fallback for older browsers
-      fallbackCopy(textToCopy, e.target);
-    }
-  }
+  const textToCopy = codeElement.textContent;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      e.target.textContent = "Copied!";
+      if (navigator.vibrate) navigator.vibrate(100);
+      setTimeout(() => { e.target.textContent = "Copy"; }, 2000);
+    }).catch(() => fallbackCopy(textToCopy, e.target));
+  } else fallbackCopy(textToCopy, e.target);
 });
 
-// Fallback copy function using textarea + execCommand
 function fallbackCopy(text, btn) {
   const textarea = document.createElement("textarea");
   textarea.value = text;
-  textarea.style.position = "fixed";  // prevent scrolling
+  textarea.style.position = "fixed";
   textarea.style.opacity = "0";
   textarea.style.left = "-9999px";
   document.body.appendChild(textarea);
@@ -170,16 +152,10 @@ function fallbackCopy(text, btn) {
     const successful = document.execCommand('copy');
     if (successful) {
       btn.textContent = "Copied!";
-      if (navigator.vibrate) {
-        navigator.vibrate(100);
-      }
-      setTimeout(() => {
-        btn.textContent = "Copy";
-      }, 2000);
-    } else {
-      alert("Copy failed, please copy manually.");
-    }
-  } catch (err) {
+      if (navigator.vibrate) navigator.vibrate(100);
+      setTimeout(() => { btn.textContent = "Copy"; }, 2000);
+    } else alert("Copy failed, please copy manually.");
+  } catch {
     alert("Copy failed, please copy manually.");
   }
 
