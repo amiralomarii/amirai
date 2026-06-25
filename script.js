@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Markdown rendering with code block support
+// Markdown rendering with code block and libraries support
 function renderMarkdown(text) {
   const escapeHtml = (str) =>
     str.replace(/&/g, "&amp;")
@@ -28,27 +28,60 @@ function renderMarkdown(text) {
        .replace(/"/g, "&quot;")
        .replace(/'/g, "&#39;");
 
+  // 1. Extract block code blocks and replace with placeholder
   const codeBlocks = [];
-  text = text.replace(/```([\s\S]*?)```/g, (match, p1) => {
-    codeBlocks.push(p1);
+  text = text.replace(/```(\w*)\n([\s\S]*?)```/g, (match, lang, code) => {
+    codeBlocks.push({ lang: lang || 'code', code: code });
     return `@@CODEBLOCK${codeBlocks.length - 1}@@`;
   });
 
-  let escaped = escapeHtml(text);
-  escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-  escaped = escaped.replace(/\*(.*?)\*/g, '<i>$1</i>');
+  // 2. Parse markdown using Marked if available
+  let html = text;
+  if (window.marked && window.marked.parse) {
+    window.marked.setOptions({
+      breaks: true,
+      gfm: true
+    });
+    html = window.marked.parse(text);
+  } else {
+    // Simple fallback rendering
+    html = escapeHtml(text);
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    html = html.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>');
+  }
 
-  codeBlocks.forEach((code, idx) => {
+  // 3. Restore code blocks with modern header design
+  codeBlocks.forEach((item, idx) => {
     const codeHtml = `
       <div class="code-block-wrapper">
-        <pre><code>${escapeHtml(code)}</code></pre>
-        <button class="copy-btn">Copy</button>
+        <div class="code-block-header">
+          <span class="code-block-lang">${item.lang.toUpperCase()}</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code>${escapeHtml(item.code)}</code></pre>
       </div>
     `;
-    escaped = escaped.replace(`@@CODEBLOCK${idx}@@`, codeHtml);
+    html = html.replace(`<p>@@CODEBLOCK${idx}@@</p>`, codeHtml);
+    html = html.replace(`@@CODEBLOCK${idx}@@`, codeHtml);
   });
 
-  return escaped;
+  return html;
+}
+
+// Function to typeset math formulas in element
+function renderMath(element) {
+  if (window.renderMathInElement) {
+    window.renderMathInElement(element, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+      throwOnError: false
+    });
+  }
 }
 
 function appendMessage(content, sender) {
@@ -68,6 +101,9 @@ function appendMessage(content, sender) {
   chatBox.appendChild(wrapper);
   chatBox.scrollTop = chatBox.scrollHeight;
 
+  // Render math in the appended message
+  renderMath(msg);
+
   return msg;
 }
 
@@ -81,21 +117,36 @@ function sendMessage() {
   input.value = "";
   input.style.height = "auto";
 
-  const typingMsg = appendMessage("Assistant is typing...", "bot");
+  const typingMsg = appendMessage("Assistant is typing...", "bot typing-active");
+
+  // Construct context message containing user's live current date and instructions for proper markdown, math, and table rendering
+  const liveDateContext = {
+    role: "system",
+    content: `You are Amir's unique AI assistant.
+1. Today's current date and time is: ${new Date().toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}. Refer to this when answering time or date queries.
+2. ALWAYS use LaTeX math formatting for math equations, formulas, and single variables. Wrap block equations in double dollar signs ($$equation$$) and inline equations/variables in single dollar signs ($equation$). For example: use '$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$' and '$a^2 + b^2 = c^2$'. Do not write math formulas in plain text or using superscript symbols like ² or ᵐ.
+3. ALWAYS format text beautifully with markdown. Use '###' for headings/sections (e.g. '### Algebra'), blockquotes (e.g. '> Quote'), and lists for itemized lines. This is critical for visual styling.
+4. ALWAYS format tables using markdown pipe-and-hyphen syntax (e.g. | Column 1 | Column 2 | \\n |---|---| \\n | Row 1 | Row 2 |). Never output tables in plain text, spaces, or tabs.`
+  };
 
   fetch("https://amirai.onrender.com/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages: messageHistory }),
+    body: JSON.stringify({ messages: [liveDateContext, ...messageHistory] }),
   })
     .then((res) => {
       if (!res.ok) throw new Error(`Server error: ${res.status}`);
       return res.json();
     })
     .then((data) => {
+      typingMsg.classList.remove("typing-active");
+      if (typingMsg.parentElement) {
+        typingMsg.parentElement.classList.remove("typing-active");
+      }
       if (data.choices && data.choices[0]) {
         const reply = data.choices[0].message.content;
         typingMsg.innerHTML = renderMarkdown(reply);
+        renderMath(typingMsg);
         messageHistory.push({ role: "assistant", content: reply });
       } else if (data.error) {
         typingMsg.textContent = `Error: ${data.error}`;
@@ -104,6 +155,10 @@ function sendMessage() {
       }
     })
     .catch((err) => {
+      typingMsg.classList.remove("typing-active");
+      if (typingMsg.parentElement) {
+        typingMsg.parentElement.classList.remove("typing-active");
+      }
       typingMsg.textContent = "⚠️ Error: " + err.message;
     });
 }
@@ -125,7 +180,10 @@ input.addEventListener("input", () => {
 // Copy button event listener
 chatBox.addEventListener("click", (e) => {
   if (!e.target.classList.contains("copy-btn")) return;
-  const codeElement = e.target.previousElementSibling.querySelector("code");
+  
+  // Find code block within the same wrapper wrapper
+  const wrapper = e.target.closest(".code-block-wrapper");
+  const codeElement = wrapper ? wrapper.querySelector("code") : null;
   if (!codeElement) return;
 
   const textToCopy = codeElement.textContent;
