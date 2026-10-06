@@ -2,68 +2,113 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amir's AI Assistant</title>
-    <!-- Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="theme-color" content="#09090c" />
+    <title>Amir AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- KaTeX Styles & Scripts for Math Rendering -->
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
-    <!-- Marked.js for Markdown Parser -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
-    <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css?v=2.0" />
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+    <link rel="stylesheet" href="style.css?v=6.0" />
   </head>
   <body>
-    <div class="chat-container">
-      <div class="chat-header">
-        <h1 class="chat-title">Amir's AI Assistant</h1>
-        <div class="chat-status">
-          <span class="status-dot"></span>
-          <span class="status-text">AmirAI-2.0 • Online</span>
+    <main id="app-shell" class="chat-container" aria-label="Amir AI assistant">
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+
+      <header class="chat-header">
+        <div class="brand-mark" aria-hidden="true">
+          <span>A</span>
+          <i></i>
         </div>
-      </div>
-      <div id="chat-box" class="chat-box"></div>
-      <div class="input-container">
-        <textarea
-          id="user-input"
-          placeholder="Type your message..."
-          rows="1"
-        ></textarea>
-        <button id="send-btn" aria-label="Send message">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.53 60.53 0 0 0 18.29-9.356.75.75 0 0 0 0-1.226 60.53 60.53 0 0 0-18.29-9.36Z" />
+
+        <div class="brand-copy">
+          <h1 class="chat-title">Amir AI</h1>
+          <p class="chat-subtitle">Work, products &amp; Alomari Tech</p>
+        </div>
+
+        <button
+          id="reset-btn"
+          class="header-action"
+          type="button"
+          aria-label="Start a new conversation"
+          title="New conversation"
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 11a8 8 0 1 0-2.34 5.66M20 5v6h-6" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-      </div>
-    </div>
-    <script src="script.js?v=2.0"></script>
-    <!-- Smart Auto-Scroll Observer -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const chatBox = document.getElementById("chat-box");
-        if (chatBox) {
-          const observer = new MutationObserver(() => {
-            chatBox.scrollTo({
-              top: chatBox.scrollHeight,
-              behavior: 'smooth'
-            });
-          });
-          observer.observe(chatBox, {
-            childList: true,
-            subtree: true,
-            characterData: true
-          });
-        }
-      });
-    </script>
+      </header>
+
+      <section id="chat-box" class="chat-box" aria-live="polite" aria-busy="false">
+        <div id="welcome-state" class="welcome-state">
+          <div class="welcome-mark" aria-hidden="true">
+            <span>A</span>
+            <i></i>
+          </div>
+          <h2>Ask about Amir’s work.</h2>
+          <p>Explore what he builds, how his automation systems work, or what Alomari Tech focuses on.</p>
+
+          <div class="prompt-grid" aria-label="Suggested questions">
+            <button class="prompt-chip" type="button" data-intent="projects">
+              <span class="prompt-kicker">Projects</span>
+              <span class="prompt-label">What has Amir built?</span>
+              <span class="prompt-arrow">↗</span>
+            </button>
+
+            <button class="prompt-chip" type="button" data-intent="automation">
+              <span class="prompt-kicker">Automation</span>
+              <span class="prompt-label">How does the automation work?</span>
+              <span class="prompt-arrow">↗</span>
+            </button>
+
+            <button class="prompt-chip" type="button" data-intent="company">
+              <span class="prompt-kicker">Alomari Tech</span>
+              <span class="prompt-label">Tell me about Alomari Tech</span>
+              <span class="prompt-arrow">↗</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="composer-shell">
+        <div id="composer" class="input-container">
+          <textarea
+            id="user-input"
+            placeholder="Ask about Amir’s work…"
+            rows="1"
+            maxlength="4000"
+            aria-label="Message Amir AI"
+            enterkeyhint="send"
+            autocapitalize="sentences"
+            spellcheck="true"
+          ></textarea>
+          <button id="send-btn" type="button" aria-label="Send message" title="Send">
+            <svg class="send-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="send-loader" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+        </div>
+        <div class="composer-meta" aria-live="polite">
+          <span id="composer-status">Enter to send · Shift + Enter for a new line</span>
+        </div>
+      </footer>
+    </main>
+
+    <script src="script.js?v=6.0"></script>
   </body>
 </html>
