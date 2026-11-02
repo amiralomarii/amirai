@@ -1,0 +1,162 @@
+/* EDITION 6 | Editorial Monochrome
+   One restrained palette across every section: porcelain / graphite / stone / copper.
+   The copper appears only as a small, consistent interaction accent. */
+:root {
+ --paper:#F7F5F2;
+ --paper-deep:#EBE7E2;
+ --ink:#1B1B1D;
+ --soft:#67635F;
+ --line:#DCD7D0;
+ --violet:#BB7156;
+ --violet-bright:#E3B7A3;
+ --dark:#222123;
+ --dark2:#29282A;
+}
+html{background:#F7F5F2;scrollbar-color:#AAA39C #F2F0EC}
+html::-webkit-scrollbar{width:7px}
+html::-webkit-scrollbar-track{background:#F2F0EC}
+html::-webkit-scrollbar-thumb{background:#ABA39D;border:1px solid #F2F0EC;border-radius:8px}
+body{background:var(--paper);color:var(--ink)}
+::selection{background:#C1846B;color:#fff}
+:focus-visible{outline:2px solid #AD6650;outline-offset:4px}
+
+.site-header,.site-header.has-scrolled{background:rgba(247,245,242,.95);border-bottom-color:#E3DED8}
+.desktop-nav a{color:#5E5A57}
+.desktop-nav a:after{background:#B87358}
+.brand-period,.accent-dot,.hero-punctuation,.nav-diagonal{color:#B87358}
+.mobile-menu{background:#F7F5F2}
+.header-contact,.action-dark{background:#1D1D1F;color:#fff}
+.header-contact:hover,.action-dark:hover{background:#373235}
+.button-icon,.action-arrow{background:#424042}
+.header-contact:hover .button-icon,.action:hover .action-arrow{background:#AA674F}
+.header-contact:hover{box-shadow:0 12px 34px #382B2B2A}
+.eyebrow,.overline,.showcase-number,.expertise-num{color:#9E6F5D;letter-spacing:.07em}
+/* Hero keeps the original approved hierarchy and photography. */
+.hero,.intro-section,.expertise-section{background:#F7F5F2}
+.hero-ambient{background:radial-gradient(circle,#EDE3DC 0,rgba(247,245,242,0) 67%);opacity:.65}
+.hero h1,.intro-layout h2,.about-copy h2{color:#1B1B1D}
+.hero h1 em,.intro-layout h2 em,.expertise-intro h2 em,.news-teaser h2 em{color:#B6745D}
+.hero-photo{box-shadow:0 30px 75px #32251F20}
+.hero-description,.intro-layout>p:last-child{color:#66625F}
+.overline-bar{background:#B8755A}
+.hero-overline{color:#736E6A}
+.quiet-action:hover{color:#B16B52}
+/* Work is a single coherent neutral editorial environment: three different demos,
+   one continuous background, with matched off-white interface surfaces. */
+.work-section{background:#EAE6E1;color:#1C1C1E;padding-top:clamp(90px,9vw,135px)}
+.work-header h2,.showcase h3{color:#1C1C1E}
+.work-header>p,.showcase-text>p{color:#64605E}
+.work-header .eyebrow,.showcase-number{color:#A0644F}
+.showcase-keywords span{color:#635D58;background:transparent;border-color:#C8C0B8}
+.showcase-inline{color:#9D5843;border-color:#A96B53}
+.showcase-inline:hover{color:#5F3025}
+.showcase-visual{border:1px solid #D6CFC8;border-radius:12px;background:#F6F4F1;box-shadow:0 16px 52px #251E1A0B}
+.showcase-automation .showcase-visual,
+.showcase-web .showcase-visual,
+.showcase-ai .showcase-visual{background:#F6F4F1;border-color:#D6CFC8;box-shadow:0 16px 52px #251E1A0B}
+.automation-visual .visual-topline,.automation-visual .visual-mode,
+.web-visual .visual-topline,.web-visual .visual-mode,
+.ai-visual .visual-topline,.ai-visual .visual-mode{color:#81756D}
+/* Workflow: warm graphite nodes on a quiet canvas; animated copper routing. */
+.flow-artboard{background:transparent}
+.flow-artboard:before{background-image:radial-gradient(circle,#D8C9BF 1px,transparent 1px);opacity:.55}
+.flow-lines .flow-base{stroke:#C8B4A7}
+.flow-lines .flow-moving{stroke:#BB7156;filter:drop-shadow(0 0 3px #BD795F55)}
+.flow-node{background:#FFFFFF;border:1px solid #D0C4BA;box-shadow:0 8px 22px #322B2414}
+.flow-node strong{color:#272527}
+.flow-node small{color:#82756B}
+.flow-node .node-icon{color:#B77459}
+.fn-main{background:#282629;border-color:#B77459;box-shadow:0 12px 38px #241D1F28}
+.fn-main strong{color:#fff}
+.fn-main small{color:#E5CDC2}
+.fn-main .node-icon{color:#DBA991}
+.core-orbit{border-color:#E3B19B}
+.flow-toolbar{border-top-color:#DCD4CD;background:#F1EDE8}
+.flow-toolbar-copy strong{color:#292526}
+.flow-toolbar-copy span{color:#776B64}
+.play-workflow{background:#242224;border:1px solid #242224;color:#fff}
+.play-workflow:hover{background:#4C3431;color:#fff}
+/* Web demo matches other illustrations. Preserve theme toggle and hover. */
+.mock-browser{box-shadow:0 24px 55px #34251F1C;border-color:#D7CEC7}
+.mock-content{background:#FBFAF8}
+.showcase-web .showcase-visual{background:#EEE9E4}
+.web-visual.is-dark{background:#313033}
+.theme-dot.is-selected{outline-color:#A9674E}
+/* Applied AI demo: no green cards or purple-on-black dashboard. */
+.showcase-ai .showcase-visual{background:#EEE9E4}
+.ai-concept{background:#FBFAF8;color:#242225;border:1px solid #D8D0C8;box-shadow:0 13px 38px #33261C19}
+.ai-concept-top{background:#F4F0EC;border-bottom-color:#E1DAD3}
+.ai-concept-brand{color:#292425}
+.ai-concept-brand span{color:#B36F55}
+.ai-concept-subtitle{color:#83766E;border-left-color:#DFD4CC}
+.ai-concept-status{color:#7D716A}
+.ai-concept-menu{background:#F2EEEA;border-color:#DED7D0}
+.ai-concept-menu>span,.ai-concept-overline,.ai-feature-overline{color:#9F938C}
+.ai-concept-menu button{color:#625C58}
+.ai-concept-menu button.is-selected{background:#E8D9CE;color:#744531}
+.ai-concept-menu button:hover{background:#EBE2DC}
+.ai-sample-input{background:#F2EEEA;color:#3E3732;border-color:#E3D9D0}
+.ai-answer-icon{background:#ECE0D7;color:#925A46}
+.ai-answer p{color:#4A4644}
+.ai-output{background:#fff;border-color:#DED4CB;box-shadow:none}
+.ai-output-head{border-color:#E7E0D9;color:#66605B}
+.ai-output-feature{border-color:#E7E0D9}
+.ai-output-feature strong{color:#262326}
+.ai-output-meter i{background:#BA826B}
+.ai-output-meter i:nth-child(4),.ai-output-meter i:nth-child(5){background:#ECE5DF}
+.ai-check{background:#F2E7E0;color:#AD684D}
+.ai-output-indicator{color:#88776B}
+.ai-output-indicator i{background:#B47559}
+.ai-visual-mark{color:#B06D51}
+/* Expertise lives on paper instead of one-off colored panels. */
+.expertise-section{background:#F7F5F2}
+.expertise-intro>p:not(.eyebrow),.expertise-row p{color:#68635F}
+.expertise-list,.expertise-row{border-color:#D8D2CC}
+.expertise-icon{color:#8D6556;background:#F3EBE6;border:1px solid #DDCEC3}
+.expertise-row.is-active .expertise-icon,.expertise-row:hover .expertise-icon{color:#A96049;background:#EBDBD1;border-color:#D2AE9B}
+.expertise-plus{color:#B57157}
+/* The separate third-party chat is almost black; a charcoal surround provides
+   continuity without recoloring the application itself or forcing an overlay. */
+.assistant-section{background:#252326;color:#F5F1ED;padding:clamp(46px,6vh,72px) 0}
+.assistant-head .eyebrow{color:#CDA18E}
+.assistant-head h2{color:#F7F4F0}
+.assistant-head h2 em{color:#D9A78E}
+.assistant-intro{color:#CEC6C0}
+.assistant-visit{color:#F3EDE8;border-color:#C79A86}
+.assistant-visit:hover{color:#E8BDA8}
+.assistant-frame{background:#111113;border-color:#534B48;box-shadow:0 20px 62px #0504043B}
+.assistant-frame-top{background:#393437;color:#F0E8E4}
+.assistant-spark{color:#DBB6A2}
+.assistant-frame-top a{color:#F1E6DF}
+.assistant-screen{background:#0E0E11}
+.assistant-screen iframe{background:#0C0C0F}
+/* About returns to the same porcelain as the hero. */
+.about-section{background:#F7F5F2}
+.about-copy h2,.about-lead{color:#232023!important}
+.about-copy>p:not(.eyebrow){color:#655F5B}
+.about-copy>p a,.social-links a:hover{color:#A75E43}
+.about-facts,.about-facts>div{border-color:#DBD4CD}
+.about-facts span{color:#9D7769}
+.about-facts strong{color:#34302E}
+.about-photo-accent{display:none!important}
+.about-photo img{filter:none;border-radius:12px 12px 90px 12px}
+/* News introduction and masthead use the same palette. */
+.news-teaser{background:#EAE6E1}
+.news-teaser p:not(.eyebrow){color:#6B625E}
+.news-visual{background:#292629;color:#F3E9E1;box-shadow:0 22px 55px #2A242028}
+.news-visual:before{background:radial-gradient(circle,#9D74644D,transparent 70%)}
+.news-visual-header span:last-child,.news-visual-bottom span:last-child{color:#D6B9A7}
+.news-visual-number{color:#E5D4C8;text-shadow:25px 12px #A35A4138}
+.news-visual-number span{color:#B8755A}
+/* Footer: no disconnected green accent. */
+.site-footer{background:#19191B;color:#F7F3EE}
+.footer-top{border-color:#444042}
+.footer-top .eyebrow{color:#CFA58E}
+.footer-top p,.footer-bottom{color:#BFB5AF}
+.footer-contact-button{border-color:#9D8880}
+.footer-contact-button span{background:#5A4742}
+.footer-contact-button:hover{background:#342B2B}
+.footer-bottom nav a:hover{color:#E7AD94}
+/* Respect the established responsiveness and reduced-motion choices. */
+@media(max-width:900px){.mobile-menu{background:#F7F5F2}}
+@media(max-width:650px){.showcase-ai .showcase-visual{background:#EEE9E4}.assistant-section{padding:64px 0}.hero-ambient{opacity:.4}}

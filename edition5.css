@@ -1,0 +1,169 @@
+/* Edition 5 / unified material palette and quieter editorial details.
+   Only one accent family: warm ivory / deep pine / muted sage. */
+:root{
+  --paper:#f5f5f0;
+  --paper-deep:#F2EEEA;
+  --ink:#202022;
+  --soft:#59645c;
+  --line:#E4DBD3;
+  --violet:#998B80;
+  --violet-bright:#CCB6A7;
+  --dark:#202022;
+  --dark2:#202022;
+}
+html{background:var(--paper);scrollbar-color:#a8b6a9 #F2EEEA}
+body{background:var(--paper);color:var(--ink)}
+::selection{background:#81736A;color:white}
+:focus-visible{outline-color:#81736A}
+
+.site-header,.site-header.has-scrolled{background:rgba(245,245,240,.95)}
+.desktop-nav a:after{background:#81736A}
+.nav-diagonal{color:#81736A}
+.brand-period,.accent-dot,.hero-punctuation{color:#81736A}
+.header-contact,.action-dark{background:#202022}
+.header-contact:hover,.action-dark:hover{background:#39383A}
+.header-contact:hover .button-icon,.action:hover .action-arrow{background:#81736A}
+.button-icon,.action-arrow{background:#39383A}
+.hero{background:var(--paper)}
+.hero-ambient{background:radial-gradient(circle,#E4DBD3 0,rgba(245,245,240,0) 65%)}
+.hero h1 em,.intro-layout h2 em,.expertise-intro h2 em,.news-teaser h2 em{color:#81736A}
+.overline-bar{background:#998B80}
+.hero-photo{box-shadow:0 29px 72px #14231919}
+.hero-photo-edge,.hero-vertical{display:none!important}
+.intro-section{background:#f5f5f0}
+.intro-layout h2{font-weight:550}
+.intro-layout>p:last-child{color:#647167}
+.eyebrow,.showcase-number,.expertise-num{color:#998B80;letter-spacing:.07em;font-weight:750}
+.eyebrow{font-size:11px;margin-bottom:21px}
+/* work: same dark material for all three examples, with quiet light surfaces inside */
+.work-section{background:#202022;color:#F2EEEA}
+.work-header>p,.showcase-text>p{color:#CCB6A7}
+.work-header h2{color:#F2EEEA}
+.showcase h3{color:#F2EEEA}
+.showcase-number{color:#CCB6A7}
+.showcase-keywords span{border-color:#39383A;color:#E4DBD3}
+.showcase-inline{color:#E4DBD3;border-color:#998B80}
+.showcase-inline:hover{color:white}
+.showcase-visual{border:1px solid #39383A;border-radius:13px}
+.showcase-automation .showcase-visual{background:#202022}
+.showcase-web .showcase-visual{background:#E4DBD3;border-color:#E4DBD3}
+.showcase-ai .showcase-visual{background:#E4DBD3;border-color:#E4DBD3;box-shadow:none}
+.automation-visual .visual-topline,.automation-visual .visual-mode{color:#CCB6A7}
+.web-visual .visual-topline,.web-visual .visual-mode,.ai-visual .visual-topline,.ai-visual .visual-mode{color:#39383A}
+/* Automation graphic: remove the isolated violet dashboard look */
+.flow-artboard{background:transparent}
+.flow-lines .flow-base{stroke:#81736A}
+.flow-lines .flow-moving{stroke:#CCB6A7;filter:drop-shadow(0 0 4px #a4c9b758)}
+.flow-node{border-color:#81736A;background:#39383A;box-shadow:0 8px 23px #16291b20}
+.flow-node strong{color:#F2EEEA}
+.flow-node small{color:#CCB6A7}
+.flow-node .node-icon{color:#CCB6A7}
+.fn-main{background:#81736A;border-color:#CCB6A7}
+.core-orbit{border-color:#CCB6A7}
+.flow-toolbar{border-top-color:#39383A;background:#202022}
+.flow-toolbar-copy strong{color:#F2EEEA}
+.flow-toolbar-copy span{color:#CCB6A7}
+.play-workflow{background:#E4DBD3;color:#202022;border:1px solid #E4DBD3}
+.play-workflow:hover{background:#F2EEEA}
+/* Web illustration blends into the same work family */
+.mock-browser{box-shadow:0 26px 65px #14241926}
+.mock-content{background:#fafaf6}
+.web-visual.is-dark{background:#39383A}
+.theme-dot.is-selected{outline-color:#81736A}
+/* Applied AI example: one consistent light-sage app treatment */
+.ai-concept{background:#F2EEEA;border-color:#CCB6A7;box-shadow:0 15px 45px #3449381c;color:#202022}
+.ai-concept-top{border-color:#E4DBD3;background:#F2EEEA}
+.ai-concept-brand{color:#202022}
+.ai-concept-brand span{color:#81736A}
+.ai-concept-subtitle{color:#81736A;border-left-color:#E4DBD3}
+.ai-concept-status{color:#81736A}
+.ai-concept-menu{background:#F2EEEA;border-color:#E4DBD3}
+.ai-concept-menu button{color:#5f7162}
+.ai-concept-menu button.is-selected{background:#E4DBD3;color:#39383A}
+.ai-concept-menu button:hover{background:#E4DBD3}
+.ai-sample-input{background:#E4DBD3;border-color:#E4DBD3;color:#202022}
+.ai-answer-icon{background:#E4DBD3;color:#39383A}
+.ai-answer p{color:#39383A}
+.ai-output{border-color:#E4DBD3;box-shadow:none;background:#F2EEEA}
+.ai-output-head,.ai-output-feature{border-color:#E4DBD3}
+.ai-output-feature strong{color:#39383A}
+.ai-output-meter i{background:#B16B52}
+.ai-check{background:#F2EEEA;color:#81736A}
+.ai-visual-mark{color:#81736A}
+.ai-menu-footer:empty,.ai-concept-status:empty{display:none}
+/* Expertise: keep the interaction, discard the artificial step-by-step dashboard */
+.expertise-section{background:#f5f5f0}
+.expertise-rail,.expertise-counter{display:none!important}
+.expertise-list{border-top-color:#E4DBD3}
+.expertise-row{border-bottom-color:#E4DBD3}
+.expertise-icon{color:#81736A;background:#F2EEEA;border-color:#E4DBD3}
+.expertise-row.is-active .expertise-icon,.expertise-row:hover .expertise-icon{background:#E4DBD3;color:#39383A;border-color:#CCB6A7}
+.expertise-plus{color:#998B80}
+/* Chat surface: the parent section now belongs to the same deep-pine family
+   as Work. Keep direct iframe interaction, without extra activation controls. */
+.assistant-section{background:#202022;color:#F2EEEA;padding:clamp(32px,4vh,51px) 0}
+.assistant-grid{grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);gap:clamp(35px,4vw,66px)}
+.assistant-head .eyebrow{color:#CCB6A7}
+.assistant-head h2{color:#F2EEEA;font-size:clamp(48px,4.75vw,79px)}
+.assistant-head h2 em{color:#CCB6A7}
+.assistant-intro{color:#CCB6A7}
+.assistant-visit{color:#F2EEEA;border-color:#CCB6A7}
+.assistant-visit:hover{color:#CCB6A7}
+.assistant-footnote,.embed-note{display:none}
+.assistant-wide{max-width:800px}
+.assistant-frame{background:#202022;border:1px solid #39383A;border-radius:13px;box-shadow:0 18px 55px #0b160f3b}
+.assistant-frame-top{background:#39383A;color:#E4DBD3;height:40px}
+.assistant-spark{color:#E4DBD3}
+.assistant-screen{height:clamp(510px,calc(100svh - var(--header) - 158px),700px);background:#202022}
+.assistant-screen iframe{pointer-events:auto;position:absolute;inset:0;width:100%;height:100%;border:0;background:#0c0c0e}
+/* Once page wheel-scroll begins, the moving page continues across the frame. */
+html.is-page-wheeling .assistant-screen iframe{pointer-events:none}
+.assistant-interact,.assistant-exit{display:none!important}
+/* About: no face-crossing decorative frame */
+.about-section{background:#f5f5f0}
+.about-photo-accent{display:none!important}
+.about-photo img{border-radius:12px 12px 94px 12px;filter:none}
+.about-copy h2{color:#202022}
+.about-copy>p:not(.eyebrow){color:#58655d}
+.about-copy>p a,.social-links a:hover{color:#39383A}
+.about-facts{border-color:#E4DBD3}
+.about-facts>div{border-color:#E4DBD3}
+.about-facts span{color:#81736A}
+/* News introduction matches the site's paper and pine palette */
+.news-teaser{background:#F2EEEA}
+.news-teaser p:not(.eyebrow){color:#56665b}
+.news-visual{background:#202022;color:#F2EEEA}
+.news-visual:before{background:radial-gradient(circle,#5379635c,transparent 68%)}
+.news-visual-number{color:#E4DBD3;text-shadow:25px 12px #41674c61}
+.news-visual-number span{color:#CCB6A7}
+.news-visual-header span:last-child,.news-visual-bottom span:last-child{color:#CCB6A7}
+/* Footer */
+.site-footer{background:#202022}
+.footer-contact-button{border-color:#998B80}
+.footer-contact-button span{background:#39383A}
+.footer-contact-button:hover{background:#39383A}
+/* Non-technical microcopy should not become decorative user-interface furniture. */
+.ai-concept-overline,.ai-feature-overline{letter-spacing:.06em}
+/* Mobile */
+@media(max-width:900px){.mobile-menu{background:#f5f5f0}.assistant-grid{grid-template-columns:1fr}.assistant-section{padding:70px 0}.assistant-head{margin-bottom:22px}.assistant-wide{width:100%;max-width:none}}
+@media(max-width:650px){
+  .hero-ambient{opacity:.4}
+  .work-header{margin-bottom:44px}
+  .showcase-number,.expertise-num{font-size:10px;letter-spacing:.055em}
+  .assistant-section{padding:62px 0 65px}
+  .assistant-head h2{font-size:clamp(43px,10vw,64px)}
+  .assistant-intro{font-size:14px}
+  .assistant-wide{width:100%}
+  .assistant-screen{height:clamp(495px,68svh,625px)}
+  .assistant-frame-top{height:37px}
+  .showcase-ai .showcase-visual{background:#E4DBD3}
+  .about-photo img{border-radius:12px 12px 78px 12px}
+}
+@media(prefers-reduced-motion:reduce){html.is-page-wheeling .assistant-screen iframe{pointer-events:auto}}
+
+/* Let actual examples speak without faux-dashboard headings. */
+.showcase-ai .ai-concept{inset:23px 4.1% 23px}
+.showcase-automation .flow-artboard{margin-top:8px}
+.web-visual .visual-topline{justify-content:flex-end}
+.web-visual .theme-switch{margin-left:auto}
+@media(max-width:650px){.showcase-ai .ai-concept{inset:16px 3% 16px}.showcase-automation .flow-artboard{margin-top:34px}}

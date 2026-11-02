@@ -1,0 +1,101 @@
+/* Edition 9. Motion refinements only. Existing colors, layout and copy preserved. */
+/* Elements always render without JavaScript; reduced-motion users see the final state. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Each project should enter in layers, not pop in as one giant card. */
+  html.has-js .showcase.reveal {opacity:1;transform:none;transition:none;}
+  html.has-js .showcase-text.motion-prep > * {
+    opacity:0; transform:translate3d(0,22px,0);
+    transition:opacity .7s cubic-bezier(.18,.7,.25,1),transform .8s cubic-bezier(.16,1,.3,1);
+  }
+  html.has-js .showcase-text.motion-in > * {opacity:1;transform:translate3d(0,0,0);}
+  html.has-js .showcase-text.motion-prep > :nth-child(1) {transition-delay:.03s;}
+  html.has-js .showcase-text.motion-prep > :nth-child(2) {transition-delay:.11s;}
+  html.has-js .showcase-text.motion-prep > :nth-child(3) {transition-delay:.20s;}
+  html.has-js .showcase-text.motion-prep > :nth-child(4) {transition-delay:.28s;}
+  html.has-js .showcase-text.motion-prep > :nth-child(5) {transition-delay:.35s;}
+  /* Only the visible project illustration animates. Important for mobile. */
+  html.has-js .showcase-visual.motion-prep {
+    opacity:0; transform:translate3d(25px,19px,0) scale(.977);
+    transition:opacity .92s cubic-bezier(.18,.7,.25,1),transform 1.06s cubic-bezier(.16,1,.3,1);
+  }
+  html.has-js .showcase-visual.motion-in {opacity:1;transform:translate3d(0,0,0) scale(1);}
+  /* Work section heading follows a shorter, lighter stagger. */
+  html.has-js .work-header.reveal {opacity:1;transform:none;transition:none;}
+  html.has-js .work-header.motion-prep > div,
+  html.has-js .work-header.motion-prep > p {
+    opacity:0;transform:translate3d(0,19px,0);
+    transition:opacity .76s ease,transform .9s cubic-bezier(.16,1,.3,1);
+  }
+  html.has-js .work-header.motion-in > div,
+  html.has-js .work-header.motion-in > p {opacity:1;transform:none;}
+  html.has-js .work-header > p {transition-delay:.13s;}
+
+  /* Website concept: very slow, gentle internal motion; no flashing or scroll hijacking. */
+  .showcase-web.motion-ambient .mock-orb-1 {animation:edition9-orb-one 12s ease-in-out infinite alternate;}
+  .showcase-web.motion-ambient .mock-orb-2 {animation:edition9-orb-two 14s ease-in-out infinite alternate;}
+  .showcase-web.motion-ambient .mini-device {animation:edition9-phone 7.8s ease-in-out infinite;}
+  @keyframes edition9-orb-one {from{transform:translate3d(0,0,0)}to{transform:translate3d(-12px,7px,0)}}
+  @keyframes edition9-orb-two {from{transform:translate3d(0,0,0)}to{transform:translate3d(8px,-11px,0)}}
+  @keyframes edition9-phone {0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-6px,0)}}
+  .showcase-web.motion-ambient .website-stage:hover .mock-graphic {filter:saturate(1.06);}
+  .mock-graphic {transition:filter .6s ease;}
+
+  /* The AI preview is a sequence of distinct, deliberate interface transitions. */
+  .ai-panel.is-current .research-search,
+  .ai-panel.is-current .research-answer,
+  .ai-panel.is-current .research-source,
+  .ai-panel.is-current .automation-head,
+  .ai-panel.is-current .timeline-step,
+  .ai-panel.is-current .automation-bottom,
+  .ai-panel.is-current .experience-top,
+  .ai-panel.is-current .experience-prompt,
+  .ai-panel.is-current .experience-result,
+  .ai-panel.is-current .experience-foot {
+    animation:edition9-detail-in .55s cubic-bezier(.16,1,.3,1) both;
+  }
+  .ai-panel.is-current .research-search,
+  .ai-panel.is-current .automation-head,
+  .ai-panel.is-current .experience-top {animation-delay:.04s;}
+  .ai-panel.is-current .research-answer,
+  .ai-panel.is-current .timeline-step:nth-child(1),
+  .ai-panel.is-current .experience-prompt {animation-delay:.12s;}
+  .ai-panel.is-current .research-source:nth-child(1),
+  .ai-panel.is-current .timeline-step:nth-child(2),
+  .ai-panel.is-current .experience-result:nth-child(1) {animation-delay:.19s;}
+  .ai-panel.is-current .research-source:nth-child(2),
+  .ai-panel.is-current .timeline-step:nth-child(3),
+  .ai-panel.is-current .experience-result:nth-child(2) {animation-delay:.25s;}
+  .ai-panel.is-current .research-source:nth-child(3),
+  .ai-panel.is-current .timeline-step:nth-child(4) {animation-delay:.30s;}
+  .ai-panel.is-current .automation-bottom,
+  .ai-panel.is-current .experience-foot {animation-delay:.35s;}
+  @keyframes edition9-detail-in {from{opacity:.0;transform:translate3d(0,9px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+
+  /* About / assistant / News: refined entry without altering their dimensions. */
+  html.has-js .intro-layout.reveal,
+  html.has-js .news-teaser-layout.reveal,
+  html.has-js .about-copy.reveal {opacity:1;transform:none;transition:none;}
+  html.has-js .intro-layout.motion-prep > *,
+  html.has-js .about-copy.motion-prep > *,
+  html.has-js .news-teaser-layout.motion-prep > * {
+    opacity:0;transform:translate3d(0,19px,0);
+    transition:opacity .8s cubic-bezier(.2,.72,.3,1),transform .92s cubic-bezier(.16,1,.3,1);
+  }
+  html.has-js .intro-layout.motion-in > *,
+  html.has-js .about-copy.motion-in > *,
+  html.has-js .news-teaser-layout.motion-in > * {opacity:1;transform:none;}
+  html.has-js .intro-layout > :nth-child(2),
+  html.has-js .about-copy > :nth-child(2) {transition-delay:.10s;}
+  html.has-js .intro-layout > :nth-child(3),
+  html.has-js .about-copy > :nth-child(3),
+  html.has-js .news-teaser-layout > :nth-child(2) {transition-delay:.19s;}
+  html.has-js .about-copy > :nth-child(n+4) {transition-delay:.23s;}
+  html.has-js .news-teaser-layout .news-visual {transform-origin:center center;}
+  .news-visual-number {transition:transform .9s cubic-bezier(.16,1,.3,1);}
+  .news-visual:hover .news-visual-number {transform:translate3d(3px,-4px,0);}
+}
+/* Never hide content or run decorative motion for reduced-motion users. */
+@media (prefers-reduced-motion:reduce) {
+  .motion-prep,.motion-prep > * {opacity:1!important;transform:none!important;animation:none!important;transition:none!important;}
+  .showcase-web .mini-device,.showcase-web .mock-orb {animation:none!important;}
+}

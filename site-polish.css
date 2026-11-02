@@ -1,0 +1,24 @@
+/* Publishing edition: native scroll on touch devices, refined drag rail on desktop. */
+@media (min-width:900px) and (pointer:fine){
+  html.has-custom-scroll{scrollbar-width:none!important;-ms-overflow-style:none!important;}
+  html.has-custom-scroll::-webkit-scrollbar,
+  html.has-custom-scroll body::-webkit-scrollbar{display:none!important;width:0!important;height:0!important;}
+}
+.site-scroll-rail{
+  position:fixed;right:9px;top:19vh;height:62vh;width:18px;
+  z-index:95;cursor:pointer;touch-action:none;user-select:none;
+  border-radius:999px;outline-offset:4px;
+}
+.site-scroll-rail[hidden]{display:none!important;}
+.site-scroll-rail::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;
+  border-radius:3px;background:rgba(115,109,105,.19);transition:background .25s ease;}
+.site-scroll-thumb{display:block;position:absolute;left:6px;top:0;width:6px;
+  min-height:42px;border-radius:999px;background:#9D7765;pointer-events:auto;
+  box-shadow:0 0 0 2px rgba(247,245,242,.38);
+  transition:width .18s ease,background .2s ease;will-change:transform;}
+.site-scroll-rail:hover::before,.site-scroll-rail:focus-visible::before{background:rgba(115,109,105,.32)}
+.site-scroll-rail:hover .site-scroll-thumb,.site-scroll-rail.is-dragging .site-scroll-thumb,
+.site-scroll-rail:focus-visible .site-scroll-thumb{width:8px;left:5px;background:#765849;}
+.site-scroll-rail:focus-visible{outline:2px solid #9D7765;}
+@media (max-width:899px),(pointer:coarse){.site-scroll-rail{display:none!important}}
+@media print{.site-scroll-rail{display:none!important}html{scrollbar-width:auto!important}}
