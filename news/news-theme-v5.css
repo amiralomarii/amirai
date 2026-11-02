@@ -1,0 +1,12 @@
+/* Publication navigation and accents align with the portfolio. */
+body.news-page{--paper:#f5f5f0;--copper:#81736A;--blue:#81736A;--accent:#81736A;--violet:#998B80;background:#f5f5f0;color:#202022}
+body.news-page .site-header{background:rgba(245,245,240,.97);border-bottom-color:#E4DBD3}
+body.news-page .site-header .brand-word,body.news-page .site-header .desktop-nav>a:not(.nav-cta){color:#202022}
+body.news-page .site-header .brand-word span{color:#998B80}
+body.news-page .site-header .desktop-nav>a:not(.nav-cta):after{background:#998B80}
+body.news-page .site-header .nav-cta{background:#202022}
+body.news-page .site-header .nav-cta:hover{background:#39383A}
+body.news-page .menu-toggle{background:#202022}
+body.news-page a:focus-visible,body.news-page button:focus-visible{outline-color:#998B80}
+body.news-page::selection{background:#998B80;color:#fff}
+@media(max-width:860px){body.news-page .site-header{height:67px}}

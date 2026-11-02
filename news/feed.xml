@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:ns0="http://www.w3.org/2005/Atom" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Signal · AI News &amp; Ideas</title>
+    <link>https://amiralomari.xyz/news/</link>
+    <description>Original AI news explainers with primary-source links.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 17 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <ns0:link href="https://amiralomari.xyz/news/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI opens a new AI research pathway for academic labs</title>
+      <link>https://amiralomari.xyz/news/rosalind/</link>
+      <guid>https://amiralomari.xyz/news/rosalind/</guid>
+      <description>The Rosalind Academic Plan offers eligible US university labs sponsored access to a specialized life-sciences model. Original source: https://openai.com/index/introducing-the-rosalind-academic-plan/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Anthropic expands access for independent AI evaluators</title>
+      <link>https://amiralomari.xyz/news/ai-audits/</link>
+      <guid>https://amiralomari.xyz/news/ai-audits/</guid>
+      <description>METR receives deeper access for risk assessment as Anthropic outlines its approach to outside scrutiny. Original source: https://www.anthropic.com/news/an-update-on-independent-evaluators</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Gemini 4 Argon puts cyberdefense and safety in the spotlight</title>
+      <link>https://amiralomari.xyz/news/gemini-safety/</link>
+      <guid>https://amiralomari.xyz/news/gemini-safety/</guid>
+      <description>Google says its latest frontier model underwent a staged security rollout, with defenders receiving early access. Original source: https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Gemini 4 Argon moves into the Gemini app</title>
+      <link>https://amiralomari.xyz/news/gemini-argon/</link>
+      <guid>https://amiralomari.xyz/news/gemini-argon/</guid>
+      <description>Google expands access to its frontier reasoning model and adds new ways to move from conversation to tasks. Original source: https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>When an AI agent goes off-script: lessons from Anthropic’s tests</title>
+      <link>https://amiralomari.xyz/news/agent-risks/</link>
+      <guid>https://amiralomari.xyz/news/agent-risks/</guid>
+      <description>A candid report of agents bypassing restrictions and taking unintended actions makes the case for stronger tool controls. Original source: https://www.anthropic.com/news/investigating-unintended-model-actions</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Anthropic launches a cyber mission for critical systems</title>
+      <link>https://amiralomari.xyz/news/cyber-mission/</link>
+      <guid>https://amiralomari.xyz/news/cyber-mission/</guid>
+      <description>A new initiative targets defensive security for critical infrastructure and open-source software. Original source: https://www.anthropic.com/news/anthropic-cyber-mission</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>GPT-6 is turning answers into interactive experiences</title>
+      <link>https://amiralomari.xyz/news/gpt6-ui/</link>
+      <guid>https://amiralomari.xyz/news/gpt6-ui/</guid>
+      <description>OpenAI introduces Intelligent UI, making visual and interactive responses part of the ChatGPT experience. Original source: https://openai.com/index/gpt-6-for-everyone/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Claude Haiku 5.5 makes the case for fast, focused AI</title>
+      <link>https://amiralomari.xyz/news/claude-haiku/</link>
+      <guid>https://amiralomari.xyz/news/claude-haiku/</guid>
+      <description>Anthropic positions its new small model around lower-cost repetitive tasks, high-volume usage and speed-sensitive applications. Original source: https://www.anthropic.com/claude-haiku-5-5</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>OpenAI publishes AI-generated mathematics for scrutiny</title>
+      <link>https://amiralomari.xyz/news/ai-mathematics/</link>
+      <guid>https://amiralomari.xyz/news/ai-mathematics/</guid>
+      <description>New mathematical results and formal proofs are shared with the research community for assessment and further work. Original source: https://openai.com/index/sharing-ai-progress-in-mathematics/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>DevDay 2026: the bigger story is how developers build with agents</title>
+      <link>https://amiralomari.xyz/news/devday-2026/</link>
+      <guid>https://amiralomari.xyz/news/devday-2026/</guid>
+      <description>OpenAI’s developer event put models, collaboration surfaces and persistent agents on one stage. Original source: https://openai.com/index/devday-2026-recap/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>GPT-6.1 Sol asks a practical question: how much intelligence can you afford?</title>
+      <link>https://amiralomari.xyz/news/gpt6-sol/</link>
+      <guid>https://amiralomari.xyz/news/gpt6-sol/</guid>
+      <description>OpenAI positions Sol as a lower-priced route to capabilities approaching its larger Astra model. Original source: https://openai.com/index/introducing-gpt-6-1-sol/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>OpenAI’s Dots point toward AI that works between conversations</title>
+      <link>https://amiralomari.xyz/news/dots/</link>
+      <guid>https://amiralomari.xyz/news/dots/</guid>
+      <description>Always-on personal agents bring persistence, connected apps and ongoing tasks into the product conversation. Original source: https://openai.com/index/introducing-dots/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Claude Sonnet 5.5 raises the bar for everyday agent work</title>
+      <link>https://amiralomari.xyz/news/claude-sonnet/</link>
+      <guid>https://amiralomari.xyz/news/claude-sonnet/</guid>
+      <description>Anthropic says its latest Sonnet is faster and more economical for many coding and document workflows. Original source: https://www.anthropic.com/claude-sonnet-5-5</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Three speeds of intelligence: inside OpenAI’s GPT-6 family</title>
+      <link>https://amiralomari.xyz/news/gpt6-family/</link>
+      <guid>https://amiralomari.xyz/news/gpt6-family/</guid>
+      <description>Astra, Sol and Luna illustrate why model selection is becoming a workload decision rather than a simple ranking. Original source: https://openai.com/index/introducing-gpt-6-sol-and-luna/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Gemini 3 predicted a future where interfaces adapt to the question</title>
+      <link>https://amiralomari.xyz/news/gemini-3/</link>
+      <guid>https://amiralomari.xyz/news/gemini-3/</guid>
+      <description>Google introduced generative interfaces and experimental agent features alongside Gemini 3. Original source: https://blog.google/products-and-platforms/products/gemini/gemini-3-gemini-app/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The GPT-5 moment: when fast answers and deeper reasoning came together</title>
+      <link>https://amiralomari.xyz/news/gpt5/</link>
+      <guid>https://amiralomari.xyz/news/gpt5/</guid>
+      <description>OpenAI’s 2025 release helped normalize the idea of one assistant choosing when to think longer. Original source: https://openai.com/index/introducing-gpt-5/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>From chatting to doing: why ChatGPT agent was a turning point</title>
+      <link>https://amiralomari.xyz/news/chatgpt-agent/</link>
+      <guid>https://amiralomari.xyz/news/chatgpt-agent/</guid>
+      <description>The 2025 announcement brought browser actions, research and multi-step tasks into a single assistant. Original source: https://openai.com/index/introducing-chatgpt-agent/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>AlphaGenome is teaching AI to read the regulatory language of DNA</title>
+      <link>https://amiralomari.xyz/news/alphagenome/</link>
+      <guid>https://amiralomari.xyz/news/alphagenome/</guid>
+      <description>A research model predicts how changes in genome sequences may affect biological function. Original source: https://deepmind.google/blog/alphagenome-ai-for-better-understanding-the-genome/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>When image generation learned to follow a design brief</title>
+      <link>https://amiralomari.xyz/news/4o-images/</link>
+      <guid>https://amiralomari.xyz/news/4o-images/</guid>
+      <description>GPT-4o’s 2025 image release emphasized readable text and more useful instruction-following. Original source: https://openai.com/index/introducing-4o-image-generation/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>MCP made connecting AI to real tools a shared engineering problem</title>
+      <link>https://amiralomari.xyz/news/mcp/</link>
+      <guid>https://amiralomari.xyz/news/mcp/</guid>
+      <description>Anthropic’s open protocol helped establish a common language between assistants and data sources. Original source: https://www.anthropic.com/news/model-context-protocol</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>AI designed the chips that help power AI: the AlphaChip story</title>
+      <link>https://amiralomari.xyz/news/alphachip/</link>
+      <guid>https://amiralomari.xyz/news/alphachip/</guid>
+      <description>Google DeepMind described how reinforcement learning was used to improve chip layouts. Original source: https://deepmind.google/blog/how-alphachip-transformed-computer-chip-design/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>AlphaFold 3 showed what happens when AI starts modeling molecular interactions</title>
+      <link>https://amiralomari.xyz/news/alphafold-3/</link>
+      <guid>https://amiralomari.xyz/news/alphafold-3/</guid>
+      <description>DeepMind and Isomorphic Labs extended structure prediction from proteins toward molecular complexes. Original source: https://blog.google/innovation-and-ai/products/google-deepmind-isomorphic-alphafold-3-ai-model/</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

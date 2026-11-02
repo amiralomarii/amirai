@@ -1,0 +1,13 @@
+/* Edition 7: match the portfolio's lighter neutral paper and graphite contrast. */
+body.news-page{--paper:#FAF9F7;--copper:#AB654F;--blue:#AB654F;--accent:#AB654F;--violet:#AB654F;background:#FAF9F7;color:#242326}
+body.news-page .site-header{background:rgba(250,249,247,.97);border-bottom-color:#E3DFD9}
+body.news-page .site-header .brand-word span{color:#AA6651}
+body.news-page .site-header .desktop-nav>a:not(.nav-cta):after{background:#A96953}
+body.news-page .news-lead{background:#F1EFEC;border-color:#DDD8D2}
+body.news-page .news-lead__copy{color:#262528}
+body.news-page .news-lead__copy p{color:#605F62!important}
+body.news-page .news-lead__top,body.news-page .news-lead__bottom small{color:#777275!important}
+body.news-page .news-round-arrow{background:#A6634F;color:#fff}
+body.news-page .news-hero-links a:hover{color:#9E5E49}
+body.news-page a:focus-visible,body.news-page button:focus-visible{outline-color:#A6634F}
+body.news-page .news-top__stamp{color:#777275}

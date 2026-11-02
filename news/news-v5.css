@@ -1,0 +1,16 @@
+/* The Signal v5: faithful source visuals, full-subject image frames. */
+.news-page .v5-source-frame {background:#e6e8e9;overflow:hidden;}
+.news-page .v5-source-frame img.v5-primary-image {display:block;width:100%;height:100%;object-fit:contain;object-position:center center;filter:none!important;transition:transform .5s cubic-bezier(.2,.7,.25,1);}
+.news-page .v5-source-frame:hover img.v5-primary-image {transform:scale(1.015);}
+.news-page .article-cover {overflow:visible;}
+.news-page .article-cover img.v5-primary-image {display:block;width:100%;height:auto;max-height:740px;object-fit:contain;object-position:center;background:#F2EEEA;border-radius:14px;}
+.news-page .v5-image-credit {font:500 11px/1.6 Manrope,sans-serif;color:#6d7077;padding:12px 2px 4px;letter-spacing:0;}
+.news-page .v5-image-credit a {font-weight:750;color:#39383A;text-decoration:underline;text-underline-offset:3px;}
+.news-page .v5-image-credit a:hover {color:#B16B52;}
+.news-page .news-picks .v5-source-frame img{height:100%;object-fit:contain;}
+@media (max-width:760px){
+ .news-page .article-cover img.v5-primary-image{border-radius:11px;max-height:none;}
+ .news-page .v5-image-credit{font-size:10px;padding-top:9px;}
+ .news-page .v5-source-frame img.v5-primary-image{transform:none;}
+}
+@media(prefers-reduced-motion:reduce){.news-page .v5-source-frame img.v5-primary-image{transition:none!important;}}
